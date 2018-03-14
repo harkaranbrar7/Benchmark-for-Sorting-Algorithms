@@ -6,11 +6,10 @@
 //  Copyright © 2018 Harkaran Brar. All rights reserved.
 //
 
-#include "Algorithms.h"
+#include "Algorithms.h"                 // Header file
 #include <iostream>
-#include <chrono>
-#include <cmath>
-#include <fstream>
+#include <cmath>                        // For Power Function
+#include <fstream>                      // For Output File
 
 using namespace std;
 
@@ -93,7 +92,7 @@ int main(int argc, char *argv[])
                 MyExcelFile<<endl<<endl<< arrayName <<" "<<arrayLength<<",";   // Write name array name to file
                 cout << "****************************************************************" << endl << endl;
                 
-                for (int counter = 0; counter <= 99; counter++)        // For loop runs 100 times
+                for (int counter = 0; counter <= 99; counter++)         // For loop runs 100 times
                 {
                     switch (typOfArr_Count)
                     {

@@ -11,10 +11,10 @@
 
 
 #include <iostream>
-#include <stdlib.h>
 #include <fstream>              // For output file
 #include <ctime>                // For clocks
 #include <vector>               // For vector
+#include <algorithm>
 
 using namespace std;
 

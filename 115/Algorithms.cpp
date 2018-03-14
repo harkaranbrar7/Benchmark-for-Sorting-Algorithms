@@ -5,34 +5,34 @@
 //  Created by Harkaran Brar on 3/6/18.
 //  Copyright © 2018 Harkaran Brar. All rights reserved.
 //
-#include "Algorithms.h"
+#include "Algorithms.h"                                // Header File
 
 
-Algorithms::Algorithms()
+Algorithms::Algorithms()                               // Default Constructor
 {
-    arrData = NULL;
-    sizeOfArry = 0;
+    arrData = NULL;                                    // Intialize pointer to NULL
+    sizeOfArry = 0;                                    // Intialize the size of array to 0
 }
 
-Algorithms::~Algorithms()
+Algorithms::~Algorithms()                              // Destructor
 {
 }
 
-Algorithms::Algorithms(int value)
+Algorithms::Algorithms(int value)                       // Copy Constructor with size 
 {
-    sizeOfArry = value;
-    arrData = new int[sizeOfArry];
-    arrData =  Random_Array_Generator(sizeOfArry);
-}
-
-
-int Algorithms::getSize()
-{
-    return sizeOfArry;
+    sizeOfArry = value;                                 // Set the size of array to given size
+    arrData = new int[sizeOfArry];                      // New pointer
+    arrData =  Random_Array_Generator(sizeOfArry);      // Get a random Array of given size 
 }
 
 
-void Algorithms::displayArray()
+int Algorithms::getSize()                               // Get the size of array
+{
+    return sizeOfArry;                                  // return size of array 
+}
+
+
+void Algorithms::displayArray()                         // Display Function for debug 
 {
     for(int i=0; i<sizeOfArry; i++)
     {
@@ -41,7 +41,7 @@ void Algorithms::displayArray()
     cout<< endl;
 }
 
-void Algorithms::reverseArray()
+void Algorithms::reverseArray()                          // Function to reverse the array of given size 
 {
     int temp;
 
@@ -57,7 +57,7 @@ void Algorithms::reverseArray()
 
 /* ************** SORTING ALGORITHMS ******************* */
 
-void Algorithms::swapArray(int i, int j)
+void Algorithms::swapArray(int i, int j)                            // Function to swap the array
 {
     int temp;
     temp = arrData[i];
@@ -67,7 +67,7 @@ void Algorithms::swapArray(int i, int j)
 
 /* ***************** SELECTION SORT ******************* */
 
-void Algorithms::selectionSort()
+void Algorithms::selectionSort()                                   // Function for Selection Sort 
 {
     
     int minVal;                     //store minimum value
@@ -99,7 +99,7 @@ void Algorithms::selectionSort()
 
 /* ***************** INSERTION SORT ******************* */
 
-void Algorithms::insertionSort()
+void Algorithms::insertionSort()                            // Function for Insertion Sort
 {
     int val, j;
 
@@ -109,7 +109,7 @@ void Algorithms::insertionSort()
         j = i-1;
         while (j>=0 && val<arrData[j])
         {
-            swapArray(j, j+1);
+            swapArray(j, j+1);                               
             j--;
         }
 
@@ -120,7 +120,7 @@ void Algorithms::insertionSort()
 
 /* ***************** BUBBLE SORT ******************* */
 
-void Algorithms::bubbleSort()
+void Algorithms::bubbleSort()                                   // Function for Bubble Sort 
 {
     for(int i=0; i<sizeOfArry;i++)
     {
@@ -137,7 +137,7 @@ void Algorithms::bubbleSort()
 
 /* ***************** MERGE SORT ******************* */
 
-void Algorithms:: Merge(int leftBottom, int leftTop, int rightBottom, int rightTop)
+void Algorithms:: Merge(int leftBottom, int leftTop, int rightBottom, int rightTop)        // Function to Merge the array from Merge Sort
 {
     
     int Size = rightTop-leftBottom+1;
@@ -171,7 +171,7 @@ void Algorithms:: Merge(int leftBottom, int leftTop, int rightBottom, int rightT
     
 }
 
-void Algorithms::mergeSort(int left, int right)
+void Algorithms::mergeSort(int left, int right)                     // Function for Merge Sort
 {
     
     if (left>=right)
@@ -191,7 +191,7 @@ void Algorithms::mergeSort(int left, int right)
 
 /* ***************** QUICK SORT ******************* */
 
-int Algorithms::Partition(int StartIndx, int endIndx)
+int Algorithms::Partition(int StartIndx, int endIndx)                     // Function for Divide the array for Quick Sort
 {
     for(int i=StartIndx;i<endIndx;i++)
     {
@@ -205,11 +205,11 @@ int Algorithms::Partition(int StartIndx, int endIndx)
     return StartIndx;
 }
 
-void Algorithms::quickSort(int left, int right)
+void Algorithms::quickSort(int left, int right)                         // Function for Quick Sort
 {
     if(left<right)
     {
-        int pivot = Partition(left, right);
+        int pivot = Partition(left, right);                             
         quickSort(left, pivot-1);
         quickSort(pivot+1, right);
     }
@@ -221,34 +221,34 @@ void Algorithms::quickSort(int left, int right)
 
 
 
-void Algorithms::Random_Array(int Size)
+void Algorithms::Random_Array(int Size)                                 // Caller Function to Generate Random element array
 {
-    if (arrData != NULL)
+    if (arrData != NULL)                                                // if it's not NULL delete 
         delete []arrData;
     sizeOfArry = Size;
-    arrData = Random_Array_Generator(Size);
+    arrData = Random_Array_Generator(Size);                            
     
 }
 
-void Algorithms::Sorted_Array(int Size)
+void Algorithms::Sorted_Array(int Size)                                 // Caller Function to Generate Sorted element array
 {
-    if (arrData != NULL)
+    if (arrData != NULL)                                                // if it's not NULL delete
         delete []arrData;
     sizeOfArry = Size;
     arrData = Sorted_Array_Generator(Size);
 }
 
-void Algorithms::Reverse_Sorted_Array(int Size)
+void Algorithms::Reverse_Sorted_Array(int Size)                       // Caller Function to Generate Reverse Sort element array
 {
-    if (arrData != NULL)
+    if (arrData != NULL)                                              // if it's not NULL delete
         delete []arrData;
     sizeOfArry = Size;
     arrData = Reverse_Sorted_Array_Generator(Size);
 }
 
-void Algorithms::Partially_Sorted_Array(int Size)
+void Algorithms::Partially_Sorted_Array(int Size)                    // Caller Function to Generate Partially Sort element array
 {
-    if (arrData != NULL)
+    if (arrData != NULL)                                             // if it's not NULL delete
         delete []arrData;
     arrData = TenPercent_Array_Generator(Size);
     sizeOfArry = Size;
@@ -257,61 +257,60 @@ void Algorithms::Partially_Sorted_Array(int Size)
 
 /* *********** ARRAY GENERATORS  **************** */
 
-int* Algorithms::Random_Array_Generator(int Size)
+int* Algorithms::Random_Array_Generator(int Size)                   // Function to Generate random element array
 {
     int * RA = new int [Size];
-    for(int counter = 0; counter < Size; counter++)
+    for(int counter = 0; counter < Size; counter++)                 // Counter 
     {
-        RA[counter]=rand() % 100;
+        RA[counter]=rand() % 100;                                   // Generate random element and assigning to array
     }
     return RA;
 }
 
 
-int * Algorithms::Sorted_Array_Generator(int Size)
+int * Algorithms::Sorted_Array_Generator(int Size)                   // Function to Generate Sorted element array
 {
     int i = 0;
     
-    arrData = Random_Array_Generator(Size);
-    vector<int> myvector (arrData, arrData+(Size));
+    arrData = Random_Array_Generator(Size);                         // Call to Random array Generator 
+    vector<int> myvector (arrData, arrData+(Size));                 // Assigning data to vector 
     
-    sort(myvector.begin(), myvector.end());
-    for (vector<int>::iterator it=myvector.begin(); it!=myvector.end(); ++it)
+    sort(myvector.begin(), myvector.end());                         // Sort algorithm form alogrithm c++ library
+    for (vector<int>::iterator it=myvector.begin(); it!=myvector.end(); ++it) // Iterator
     {
-        arrData[i] = *it;
+        arrData[i] = *it;                                           // Assigning to data to pointer array
         i++;
     }
     return arrData;
 }
 
 
-int *Algorithms::Reverse_Sorted_Array_Generator(int Size)
+int *Algorithms::Reverse_Sorted_Array_Generator(int Size)            // Function to Generate Reverse Sorted element array
 {
     
-    arrData = Sorted_Array_Generator(Size);
-    reverseArray();
+    arrData = Sorted_Array_Generator(Size);                          // Generate Sorted array
+    reverseArray();                                                  // Reverse the array 
     sizeOfArry = Size;
     
     return arrData;
 }
 
-int *Algorithms::TenPercent_Array_Generator(int Size)
+int *Algorithms::TenPercent_Array_Generator(int Size)                // Function to Generate Sorted and Ten percent Shuffled element array      
 {
-    int percent = 0;
+    int percent = 0;                                                 
     int i = 0;
-    percent = (Size * .9);
+    percent = (Size * .9);                                           // For getting how much array want to be sorted now it's at 90%
     
-    arrData = Random_Array_Generator(Size);
-    vector<int> myvector (arrData, arrData+(Size));
+    arrData = Random_Array_Generator(Size);                         // Calling random array generator
+    vector<int> myvector (arrData, arrData+(Size));                 // vector
 
-    // using default comparison (operator <):
-    partial_sort (myvector.begin(), myvector.begin()+(percent), myvector.end());
-    for (vector<int>::iterator it=myvector.begin(); it!=myvector.end(); ++it)
+    partial_sort (myvector.begin(), myvector.begin()+(percent), myvector.end());    // Partial Sort algorithm form alogrithm c++ library 
+    for (vector<int>::iterator it=myvector.begin(); it!=myvector.end(); ++it)       // Iterator
     {
-        arrData[i] = *it;
+        arrData[i] = *it;                                           // Assigning to data to pointer array
         i++;
     }
-    return arrData;
+    return arrData;                                                 // return array pointer
 }
 
 
