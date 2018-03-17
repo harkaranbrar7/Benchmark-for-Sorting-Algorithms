@@ -257,6 +257,8 @@ void Algorithms::Partially_Sorted_Array(int Size)                    // Caller F
 
 /* *********** ARRAY GENERATORS  **************** */
 
+// This function generate random array of given size.
+
 int* Algorithms::Random_Array_Generator(int Size)                   // Function to Generate random element array
 {
     int * RA = new int [Size];
@@ -267,6 +269,8 @@ int* Algorithms::Random_Array_Generator(int Size)                   // Function 
     return RA;
 }
 
+
+// This function generate sorted array of given size.
 
 int * Algorithms::Sorted_Array_Generator(int Size)                   // Function to Generate Sorted element array
 {
@@ -285,6 +289,10 @@ int * Algorithms::Sorted_Array_Generator(int Size)                   // Function
 }
 
 
+// This function generate Sorted array then reverse it.
+// array will sorted in reverse order
+
+
 int *Algorithms::Reverse_Sorted_Array_Generator(int Size)            // Function to Generate Reverse Sorted element array
 {
     
@@ -294,6 +302,9 @@ int *Algorithms::Reverse_Sorted_Array_Generator(int Size)            // Function
     
     return arrData;
 }
+
+// This function generate shuffled array and sort it 90%.
+// 10% array will be shuffled 90% will be sorted
 
 int *Algorithms::TenPercent_Array_Generator(int Size)                // Function to Generate Sorted and Ten percent Shuffled element array      
 {
@@ -312,8 +323,6 @@ int *Algorithms::TenPercent_Array_Generator(int Size)                // Function
     }
     return arrData;                                                 // return array pointer
 }
-
-
 
 
 

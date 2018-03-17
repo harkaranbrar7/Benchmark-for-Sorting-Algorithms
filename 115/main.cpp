@@ -5,6 +5,17 @@
 //  Created by Harkaran Brar on 3/3/18.
 //  Copyright © 2018 Harkaran Brar. All rights reserved.
 //
+//
+// main function which calls the other function to simulate and generate the results
+// Results will be written to excel file which is easier to read
+// For sorting algorithms test on different length
+// LengthCounter is setup for length with power function
+// Length 1 = 10, 2 = 100 , 3 = 1000, 4 = 10000 , 5 = 100000 , 6 = 1000000 respectively
+// For different types of array generation typOfArr_Count is setup
+// typOfArr_Count 0 = Sorted, 1 = Shuffled , 2 = Reverse , 3 = Tenpercent respectively
+// For different types of sorting algorithms SortAL_Count counter is setup
+// SortAL_Count 0 = Selection , 1 = Insertion , 2 = Bubble , 3 = Merge , 4 = Quick
+
 
 #include "Algorithms.h"                 // Header file
 #include <iostream>
@@ -37,7 +48,7 @@ int main(int argc, char *argv[])
     for (int lengthCount = 1; lengthCount <= 6; lengthCount++)
     {
         arrayLength = pow(10, lengthCount);    // Getting an array length power function 10^lenghtCount
-        MyExcelFile<<endl<<endl<<endl<<","<<","<<","<<","<<" Length of Array = " <<arrayLength<<endl<<endl;
+        MyExcelFile<<endl<<endl<<endl<<","<<","<<","<<","<<"Length of Array = " <<arrayLength<<endl<<endl;
         for (int SortAL_Count = 0; SortAL_Count <= 4; SortAL_Count++) // Counter for Sorting algorithms
         {
             MyExcelFile<<endl<<endl;    // End line in excel file to get data get its column
@@ -86,7 +97,7 @@ int main(int argc, char *argv[])
                         break;
                 };
 
-                arrayName = sorT +" "+ ordeR;
+                arrayName = sorT +" "+ ordeR;                              // get array name by concat both
                 cout << endl << "****************************************************************" << endl;
                 cout << arrayName <<" "<<arrayLength<< endl;
                 MyExcelFile<<endl<<endl<< arrayName <<" "<<arrayLength<<",";   // Write name array name to file
